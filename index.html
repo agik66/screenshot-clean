@@ -89,12 +89,19 @@
     .screenshots-section { padding: 80px 0 60px; text-align: center; overflow: hidden; }
     .screenshots-section h2 { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 48px; }
     .screenshots-track {
-      display: flex; gap: 20px; padding: 16px 40px 24px;
-      overflow-x: auto; justify-content: center; flex-wrap: wrap;
+      display: flex; gap: 20px; padding: 16px 40px 32px;
+      overflow-x: auto; justify-content: flex-start;
+      flex-wrap: nowrap;
       scrollbar-width: none;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      max-width: 100%;
+    }
+    @media (min-width: 1500px) {
+      .screenshots-track { justify-content: center; }
     }
     .screenshots-track::-webkit-scrollbar { display: none; }
-    .ss-item { flex: 0 0 auto; width: 195px; transition: transform 0.3s cubic-bezier(.22,1,.36,1); }
+    .ss-item { flex: 0 0 auto; width: 185px; scroll-snap-align: start; transition: transform 0.3s cubic-bezier(.22,1,.36,1); }
     .ss-item:hover { transform: translateY(-8px) scale(1.03); }
     .ss-item img {
       width: 100%; border-radius: 22px;
